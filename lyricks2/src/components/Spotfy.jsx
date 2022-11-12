@@ -1,8 +1,40 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
+import { reducerCases } from '../utils/Constants'
+import { useStateProvider } from '../utils/StateProvider'
+import Body from './Body'
+import Playlists from './Playlists'
+import SearchBar from './SearchBar'
 
 const Spotfy = () => {
+  const [{ token }, dispatch] = useStateProvider()
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      const { data } = await axios.get('https://api.spotify.com/v1/me', {
+        headers: {
+          Authorization: 'Bearer '+ token,
+          "Content-Type": "application/json"
+        }
+      })
+      const userInfo = {
+        userId: data.id,
+        userName: data.display_name
+      }
+      dispatch({type: reducerCases.SET_USER, userInfo})
+    }
+ 
+    
+    getUserInfo()
+  }, [dispatch, token])
+
   return (
-    <div>Spotfy</div>
+    <div>
+      Spotfy
+      <Playlists />
+      <SearchBar />
+      <Body />
+    </div>
   )
 }
 
