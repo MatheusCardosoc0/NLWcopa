@@ -28,7 +28,7 @@ const Playlists = () => {
 
   return (
     <div>Playlists: 
-      {playlists.map(({name, id}) => {
+      {playlists?.map(({name, id}) => {
         return(
           <div key={id}>
             <p>{name}</p>
