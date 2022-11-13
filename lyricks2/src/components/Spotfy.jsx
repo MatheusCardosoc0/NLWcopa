@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { reducerCases } from '../utils/Constants'
 import { useStateProvider } from '../utils/StateProvider'
 import Body from './Body'
+import CurrentTrack from './CurrentTrack'
+import PlayerControl from './PlayerControl'
 import Playlists from './Playlists'
 import SearchBar from './SearchBar'
 
@@ -34,6 +36,8 @@ const Spotfy = () => {
       <Playlists />
       <SearchBar />
       <Body />
+      <CurrentTrack />
+      <PlayerControl />
     </div>
   )
 }
