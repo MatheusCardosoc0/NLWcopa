@@ -68,11 +68,26 @@ function App() {
   const audioElemente = useRef<HTMLAudioElement>()
 
 
+  async function PlayMusic(){
+    
+    Axios.put('https://api.spotify.com/v1/me/player/play',{
+      headers: {
+        Authorization: "Bearer " + count,
+        "Content-Type": "application/json"
+      },
+      data: {
+        "context-uri": "spotify:album:5ht7ItJgpBH7W6vJ5BqpPr",
+        "offset": {
+          "position": 2
+        },
+        "position_ms": 0
+      }
+    })
+   
   
-  useEffect(()=> {
-    audioElemente.current?.play()
-  },[isPlaying])
-
+ 
+  }
+  
 
 
   return (
@@ -81,7 +96,7 @@ function App() {
       {count}
       {playlist?.tracks.items.map(track => {
         return (
-          <button onClick={() => setIsPlaying(true)}>
+          <button onClick={PlayMusic}>
            <img src={track.track.album.images[0].url} />
            <audio src={track.track.album.preview_url} ref={audioElemente} />
             <h1>{track.track.name}</h1>
