@@ -20,7 +20,7 @@ function App() {
     eae
     <audio ref={audioRef} src='http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3' />
     <button onClick={Play} >tocar</button>
-    <button>Pausar</button>
+    <button onClick={Pause}>Pausar</button>
     </div>
   )
 }

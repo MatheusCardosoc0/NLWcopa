@@ -1,11 +1,11 @@
-import { CartProvider } from '../context/CartContext'
+import { ContextProvider } from '../context/useDataContext'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CartProvider>
+    <ContextProvider>
       <Component {...pageProps} />
-    </CartProvider>
+    </ContextProvider>
   )
 }
 
