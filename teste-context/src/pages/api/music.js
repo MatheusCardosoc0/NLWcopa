@@ -10,7 +10,8 @@ export default async function Music(request, response){
     const musics = await prisma.music.findMany({
       select: {
         song: true,
-        bannerUrl: true
+        bannerUrl: true, 
+        title: true
       }
     })
   

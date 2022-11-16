@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { useDataContext } from '../context/useDataContext'
+import ControlPanel from './controls/ControlPanel'
+import PlayerControl from './PlayerControl'
+import Slider from './slider/Slider'
 
 const CardMusic = props => {
   const audioElement = useRef()
@@ -9,13 +12,32 @@ const CardMusic = props => {
     stateMusic,
     musicCurrent,
     setMusicCurrent,
-    setIsTimeShow
+    setIsTimeShow,
+    isTimeShow
   } = useDataContext()
+
+  const [percentage, setPercentage] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
 
   function minutesAndSeconds(s) {
     const minutes = Math.floor(s / 60)
     const seconds = (s % 60).toFixed(0)
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds
+  }
+
+  const getCurrDuration = (e) => {
+    const percent = ((e.currentTarget.currentTime / e.currentTarget.duration) * 100).toFixed(2)
+    const time = e.currentTarget.currentTime
+
+    setPercentage(+percent)
+    setCurrentTime(time.toFixed(2))
+  }
+
+  const onChange = (e) => {
+    const audio = audioElement.current
+    audio.currentTime = (audio.duration / 100) * e.target.value
+    setPercentage(e.target.value)
   }
 
   function noPointInNumber(num) {
@@ -46,6 +68,8 @@ const CardMusic = props => {
     }
   }
 
+  
+
   useEffect(() => {
     const audio = audioElement.current
     if (musicCurrent !== props.audio) {
@@ -58,12 +82,28 @@ const CardMusic = props => {
   return (
     <button onClick={Play}>
       <Image src={props.image} alt="e" width={100} height={100} />
-      Tocar <audio src={props.audio} ref={audioElement} />
+      Tocar
+       <audio src={props.audio}
+        ref={audioElement} 
+        onTimeUpdate={getCurrDuration}
+        onLoadedData={(e) => {
+          setDuration(e.currentTarget.duration.toFixed(2))
+        }}/>
       <span>
         {audioElement.current && props.audio
           ? minutesAndSeconds(audioElement.current.duration)
           : ''}
       </span>
+      <span>{props.title}</span>
+      
+      <Slider percentage={percentage} onChange={onChange} />
+
+      <ControlPanel
+        play={Play}
+        isPlaying={isTimeShow}
+        duration={duration}
+        currentTime={currentTime}
+      />
     </button>
   )
 }

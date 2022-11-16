@@ -14,4 +14,5 @@ model Music {
   id        String @id @default(cuid())
   bannerUrl String
   song      String
+  title     String @default("Music")
 }
