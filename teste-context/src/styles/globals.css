@@ -15,6 +15,12 @@ a {
   box-sizing: border-box;
 }
 
+.teste{
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

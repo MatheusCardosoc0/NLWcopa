@@ -5,15 +5,20 @@ import { useDataContext } from '../context/useDataContext'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const { musics, setMusics } = useDataContext()
+  const { musics, setMusics, isTimeShow, setMusicCurrent } = useDataContext()
 
-  const aba = musics.slice(0, 2)
+
+  
 
   return (
     <div className={styles.container}>
-      {aba.map(music => {
-        return <CardMusic audio={music.song} key={music.song} />
+
+      <button onClick={() => setMusicCurrent('')} >Tirar disco</button>
+
+      {musics.map(music => {
+        return <CardMusic image={music.bannerUrl} audio={music.song} key={music.song} />
       })}
+      <div className={isTimeShow? 'teste': ''}></div>
     </div>
   )
 }
