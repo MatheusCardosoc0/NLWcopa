@@ -59,11 +59,11 @@ const CardMusic = props => {
     setStateMusic(true)
     setIsTimeShow(true)
     setIsPlayingCurrent(true)
-    setMusicCurrent(props.audio)
+    setMusicCurrent(props.music)
     setTimeout(() => {
-      setMusicCurrent('')
+      setMusicCurrent({})
     }, timer)
-    if (musicCurrent == props.audio && stateMusic == true) {
+    if (musicCurrent.song == props.audio && stateMusic == true) {
       audio.pause()
       setStateMusic(false)
       setIsTimeShow(false)
@@ -75,16 +75,16 @@ const CardMusic = props => {
 
   useEffect(() => {
     const audio = audioElement.current
-    if (musicCurrent !== props.audio) {
+    if (musicCurrent.song !== props.audio) {
       audio.pause()
       setIsPlayingCurrent(false)
     }
   }, [musicCurrent, props.audio])
 
   return (
-    <button className="bg-gray-800 my-4 flex h-[300px]">
+    <button className="bg-gray-900/30 my-4 flex h-[300px] backdrop-blur-2xl">
       <Image
-      
+        className='opacity-80'
         src={props.image}
         alt={props.title}
         width={300}

@@ -11,8 +11,9 @@ const Sidebar = () => {
           src={Logo} alt="Logo" />
       </div>
       <div className='flex flex-col justify-center'>
-        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >eae</button>
-        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >eae</button>
+        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >Playlist 1</button>
+        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >Playlist 2</button>
+        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >Playlist 3</button>
       </div>
     </section>
   )

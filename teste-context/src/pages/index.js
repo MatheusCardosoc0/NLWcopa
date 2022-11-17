@@ -22,6 +22,7 @@ export default function Home() {
                 image={music.bannerUrl}
                 audio={music.song}
                 key={music.song}
+                music={music}
               />
             )
           })}

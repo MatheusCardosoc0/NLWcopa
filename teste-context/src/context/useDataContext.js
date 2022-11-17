@@ -6,7 +6,7 @@ const Context = createContext()
 export function ContextProvider({ children }) {
   const [musics, setMusics] = useState([])
   const [stateMusic, setStateMusic] = useState(false)
-  const [musicCurrent, setMusicCurrent] = useState('')
+  const [musicCurrent, setMusicCurrent] = useState({})
   const [isTimeShow, setIsTimeShow] = useState(false)
   const [duration, setDuration] = useState(0)
 

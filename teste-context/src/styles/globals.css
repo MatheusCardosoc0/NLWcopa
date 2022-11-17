@@ -52,3 +52,19 @@
 .side4{
   transform: rotateY(calc(90deg * 3)) translateZ(75px);
 }
+
+
+.scrollab::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+  
+}
+
+.scrollab::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);        /* color of the tracking area */
+}
+
+.scrollab::-webkit-scrollbar-thumb {
+  background-color: rgb(26, 212, 178);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(0, 0, 0);  /* creates padding around scroll thumb */
+}

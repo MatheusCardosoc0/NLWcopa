@@ -44,7 +44,7 @@ function Slider({ percentage = 0, onChange }) {
         value={position}
         ref={rangeRef}
         step='0.01'
-        className='bg-black w-full'
+        className='bg-black w-full z-10'
         onChange={onChange}
       />
     </div>
