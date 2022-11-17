@@ -1,9 +1,16 @@
 import React from 'react'
+import {  GrPauseFill, GrPlayFill } from 'react-icons/gr'
 
 function Button({ play, isPlaying }) {
+
+
+
+
   return (
-    <div className='btn-container'>
-      <div onClick={play} className={isPlaying ? 'btn-stop' : 'btn-play'}></div>
+    <div className='bg-teal-600 rounded-lg p-2 mt-2'>
+      <div onClick={play} >
+      {isPlaying ? < GrPauseFill /> : <GrPlayFill />}
+      </div>
     </div>
   )
 }

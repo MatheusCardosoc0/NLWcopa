@@ -1,32 +1,54 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.ontainer{
+  perspective: 1px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.disc{
+  box-shadow: inset 0 0 70px rgb(1, 220, 236)
 }
 
-* {
-  box-sizing: border-box;
+.cube{
+  width: 100%;
+  height:  100%;
+  transform-style: preserve-3d;
+  position: fixed;
+  animation: identifier infinite 2s;
 }
 
-.teste{
-  width: 100px;
-  height: 100px;
-  background-color: black;
+@keyframes identifier {
+  100%{transform: rotateX(360deg)}
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.wall{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  border: 'px solid yellow';
+  box-shadow: inset 0 0 70px rgb(1, 220, 236);
+}
+
+.top{
+  transform: rotateX(90deg) translateZ(75px)
+}
+
+.bottom{
+  transform: rotateX(-90deg) translateZ(75px)
+}
+
+.side1{
+  transform: rotateY(calc(90deg * 0)) translateZ(75px);
+}
+.side2{
+  transform: rotateY(calc(90deg * 1)) translateZ(75px);
+}
+.side3{
+  transform: rotateY(calc(90deg * 2)) translateZ(75px);
+}
+.side4{
+  transform: rotateY(calc(90deg * 3)) translateZ(75px);
 }

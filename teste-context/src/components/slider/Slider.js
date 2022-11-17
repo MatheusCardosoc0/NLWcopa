@@ -24,15 +24,15 @@ function Slider({ percentage = 0, onChange }) {
   
 
   return (
-    <div className='slider-container'>
+    <div className='w-[400px] flex flex-col bg-black p-2 rounded-full'>
       <div
-        className='progress-bar-cover'
+        className='bg-teal-500'
         style={{
           width: `${progressBarWidth}px`
         }}
       ></div>
       <div
-        className='thumb'
+        className='bg-teal-500'
         ref={thumbRef}
         style={{
           left: `${position}%`,
@@ -44,7 +44,7 @@ function Slider({ percentage = 0, onChange }) {
         value={position}
         ref={rangeRef}
         step='0.01'
-        className='range'
+        className='bg-black w-full'
         onChange={onChange}
       />
     </div>
