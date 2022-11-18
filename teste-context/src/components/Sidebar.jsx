@@ -1,9 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
 import Logo from '../../public/LogoLyriksMusic.jpeg'
+import { useDataContext } from '../context/useDataContext'
 
 
 const Sidebar = () => {
+
+  const {setPlaylistCurrent, playlistCurrent} = useDataContext()
+
   return (
     <section className='h-screen w-1/4 bg-gradient-to-b to-teal-500 from-black flex flex-col pt-20 border-r-4 border-purple-500 gap-8'>
       <div>
@@ -11,9 +15,9 @@ const Sidebar = () => {
           src={Logo} alt="Logo" />
       </div>
       <div className='flex flex-col justify-center'>
-        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >Playlist 1</button>
-        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >Playlist 2</button>
-        <button className='bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ' >Playlist 3</button>
+        <button onClick={() =>setPlaylistCurrent(1)} className={`bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3 ${playlistCurrent == 1 && 'bg-teal-400 text-black'}`} >Playlist 1</button>
+        <button onClick={() => setPlaylistCurrent(2)} className={`bg-gray-900 rounded-lg p-2 text-lg font-bold text-teal-500 border-4 border-teal-600 w-4/5 mx-auto my-3  ${playlistCurrent == 2 && 'bg-teal-400 text-black'}` }>Playlist 2</button>
+       
       </div>
     </section>
   )

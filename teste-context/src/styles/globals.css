@@ -8,7 +8,18 @@
 }
 
 .disc{
-  box-shadow: inset 0 0 70px rgb(1, 220, 236)
+  box-shadow: inset 0 0 70px rgb(1, 220, 236);
+}
+
+.noShow{
+  box-shadow: inset 0 0 70px rgb(0, 0, 0);
+}
+
+@keyframes colorParty {
+  25%{box-shadow: inset 0 0 70px rgb(236, 1, 40)}
+  50%{box-shadow: inset 0 0 70px rgb(236, 201, 1)}
+  75%{box-shadow: inset 0 0 70px rgb(121, 36, 248)}
+  100%{box-shadow: inset 0 0 70px rgb(60, 236, 1)}
 }
 
 .cube{
@@ -28,7 +39,7 @@
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  border: 'px solid yellow';
+  border: 3px solid rgb(6, 236, 205);
   box-shadow: inset 0 0 70px rgb(1, 220, 236);
 }
 
@@ -51,6 +62,14 @@
 }
 .side4{
   transform: rotateY(calc(90deg * 3)) translateZ(75px);
+}
+
+.spiner{
+  animation: spin linear 2s infinite;
+}
+
+@keyframes spin {
+  100%{transform: rotate(360deg);}
 }
 
 

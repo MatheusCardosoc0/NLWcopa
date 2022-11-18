@@ -54,15 +54,11 @@ const CardMusic = props => {
 
   function Play() {
     const audio = audioElement.current
-    const timer = noPointInNumber(audio.duration)
     audio.play()
     setStateMusic(true)
     setIsTimeShow(true)
     setIsPlayingCurrent(true)
     setMusicCurrent(props.music)
-    setTimeout(() => {
-      setMusicCurrent({})
-    }, timer)
     if (musicCurrent.song == props.audio && stateMusic == true) {
       audio.pause()
       setStateMusic(false)
@@ -102,7 +98,7 @@ const CardMusic = props => {
 
      
       <div className='flex flex-col mx-auto py-4'>
-      <span className='bg-gradient-to-r from-yellow-500 via-green-500 to-purple-600 bg-clip-text text-transparent text-3xl font-bold mb-4'>{props.title}</span>
+      <span className='bg-gradient-to-r text-gray-200 text-3xl font-bold mb-4'>{props.title}</span>
       
      
         <Slider percentage={percentage} onChange={onChange} />

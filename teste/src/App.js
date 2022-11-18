@@ -50,7 +50,7 @@ function App() {
         onLoadedData={(e) => {
           setDuration(e.currentTarget.duration.toFixed(2))
         }}
-        src={'http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3'}
+        src={''}
       ></audio>
       <ControlPanel
         play={play}
@@ -63,3 +63,12 @@ function App() {
 }
 
 export default App
+
+
+//
+
+//https://cdn.freesound.org/previews/659/659875_5674468-lq.mp3
+
+//
+
+
