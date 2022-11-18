@@ -24,7 +24,7 @@ function Slider({ percentage = 0, onChange }) {
   
 
   return (
-    <div className='w-[400px] flex flex-col bg-black p-2 rounded-full'>
+    <div className='lg:w-[400px] w-full flex flex-col bg-black p-2 rounded-full'>
       <div
         className='bg-teal-500'
         style={{

@@ -7,7 +7,7 @@ function Button({ play, isPlaying }) {
 
 
   return (
-    <div className='bg-teal-600 rounded-lg p-2 mt-2 z-10'>
+    <div className='bg-teal-600 rounded-lg p-2 z-10 w-[30px]'>
       <div onClick={play} >
       {isPlaying ? < GrPauseFill /> : <GrPlayFill />}
       </div>

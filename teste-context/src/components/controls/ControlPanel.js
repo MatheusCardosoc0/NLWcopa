@@ -31,7 +31,7 @@ function ControlPanel({ play, isPlaying, duration, currentTime }) {
   }
 
   return (
-    <div className='flex justify-between text-gray-200'>
+    <div className='flex text-sm md:text-base text-gray-200 justify-between my-2 lg:gap-20'>
       <div className='timer'>{secondsToHms(currentTime)}</div>
       <Button play={play} isPlaying={isPlaying} />
       <div className='timer'>{secondsToHms(duration)}</div>

@@ -78,37 +78,41 @@ const CardMusic = props => {
   }, [musicCurrent, props.audio])
 
   return (
-    <button className="bg-gray-900/30 my-4 flex h-[300px] backdrop-blur-2xl">
-      <Image
-        className='opacity-80'
-        src={props.image}
-        alt={props.title}
-        width={300}
-        height={300}
-      />
-  
-      <audio
-        src={props.audio}
-        ref={audioElement}
-        onTimeUpdate={getCurrDuration}
-        onLoadedData={e => {
-          setDuration(e.currentTarget.duration.toFixed(2))
-        }}
-      />
-
-     
-      <div className='flex flex-col mx-auto py-4'>
-      <span className='bg-gradient-to-r text-gray-200 text-3xl font-bold mb-4'>{props.title}</span>
-      
-     
-        <Slider percentage={percentage} onChange={onChange} />
-
-        <ControlPanel
-          play={Play}
-          isPlaying={isPlayingCurrent}
-          duration={duration}
-          currentTime={currentTime}
+    <button className="bg-gray-900/30 w-full flex h-[300px] lg:h-[300px] backdrop-blur-2xl flex-col lg:flex-row">
+      <div className="w-full h-1/2 lg:h-full">
+        <Image
+          className="opacity-80 w-full h-full lg:w-1/2"
+          src={props.image}
+          alt={props.title}
+          width={30}
+          height={30}
         />
+
+        <audio
+          src={props.audio}
+          ref={audioElement}
+          onTimeUpdate={getCurrDuration}
+          onLoadedData={e => {
+            setDuration(e.currentTarget.duration.toFixed(2))
+          }}
+        />
+      </div>
+
+      <div className="flex flex-col my-auto justify-center items-center w-full">
+        <span className="bg-gradient-to-r text-gray-200 md:text-3xl font-bold mb-4">
+          {props.title}
+        </span>
+
+        <div className='flex flex-col w-2/3 lg:w-full justify-center lg:items-center'>
+          <Slider percentage={percentage} onChange={onChange} />
+
+          <ControlPanel
+            play={Play}
+            isPlaying={isPlayingCurrent}
+            duration={duration}
+            currentTime={currentTime}
+          />
+        </div>
       </div>
     </button>
   )

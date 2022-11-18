@@ -9,6 +9,7 @@ export function ContextProvider({ children }) {
   const [musicCurrent, setMusicCurrent] = useState({})
   const [isTimeShow, setIsTimeShow] = useState(false)
   const [playlistCurrent, setPlaylistCurrent] = useState(1)
+  const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/music').then(response => {
@@ -34,7 +35,9 @@ export function ContextProvider({ children }) {
          isTimeShow,
          setIsTimeShow,
          playlistCurrent,
-         setPlaylistCurrent }}>
+         setPlaylistCurrent,
+         showMenu,
+         setShowMenu }}>
       {children}
     </Context.Provider>
   )
