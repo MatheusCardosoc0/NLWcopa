@@ -78,10 +78,10 @@ const CardMusic = props => {
   }, [musicCurrent, props.audio])
 
   return (
-    <button className="bg-gray-900/30 w-full flex h-[300px] lg:h-[300px] backdrop-blur-2xl flex-col lg:flex-row">
+    <button className="bg-gray-900/30 flex h-[300px] lg:h-[300px] backdrop-blur-2xl flex-col lg:flex-row">
       <div className="w-full h-1/2 lg:h-full">
         <Image
-          className="opacity-80 w-full h-full lg:w-1/2"
+          className="opacity-80 w-2/3 mx-auto md:mx-0 h-full lg:w-1/2"
           src={props.image}
           alt={props.title}
           width={30}
